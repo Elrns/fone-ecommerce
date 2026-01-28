@@ -3,76 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet"
-    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
-    <title>Fones de Ouvidos</title>
+    <title>Soundbox | Premium Audio</title>
 </head>
 <body>
     
-    <header>
-        <a href="#" class="logo"><i class='bx bx-headphone'></i>Soundbox</a>
-
-        <ul class="navegação">
-            <li><a href="#">Visão geral</a></li>
-            <li><a href="#">Especificações Técnicas</a></li>
-            <li><a href="#">Avaliações</a></li>
-            <li><a href="#">Contate-nos</a></li>
-        </ul>
-
+    <div class="stars-container"></div> <header>
+        <a href="#" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+        <nav class="navbar">
+            <a href="#" class="active">Visão Geral</a>
+            <a href="#">Especificações</a>
+            <a href="#">Avaliações</a>
+            <a href="#">Contate-nos</a>
+        </nav>
         <div class="header-icons">
-            <i class='bx bx-cart' ></i>
-            <div id="menu"><i class='bx bx-menu' ></i></div>
+            <i class='bx bx-shopping-bag'></i>
+            <i class='bx bx-menu' id="menu-icon"></i>
         </div>
     </header>
 
     <section class="home">
-        <div class="home-img">
-            <img src="img/product1.png" class="one">
+        <div class="home-text">
+            <p class="date-info">Tuesday, 27 January, 2026</p>
+            <h1>Wireless <br> <span>Headphones</span></h1>
+            <h5>A maneira mais inteligente de ouvir.</h5>
+            <h3 class="price">R$ 1077,29</h3>
+            
+            <div class="btn-group">
+                <a href="#" class="btn-buy">Compre agora</a>
+                <a href="#" class="btn-link">Saber mais</a>
+            </div>
         </div>
 
-        <div class="home-text">
-            <h1>Wireless <br> Headphones</h1>
-            <h5>A maneira mais inteligente de ouvir</h5>
-            <h3>R$ 1077,29</h3>
-            <a href="#" class="btn">Compre agora</a>
+        <div class="home-img">
+            <div class="circle-bg"></div> <img src="img/product1.png" class="main-img">
+        </div>
+
+        <div class="thumbnails">
+            <div class="thumb active" style="--clr: #34e7f8;" onclick="slider('img/product1.png', this)">
+                <img src="img/main1.png">
+            </div>
+            <div class="thumb" style="--clr: #ff758d;" onclick="slider('img/product2.png', this)">
+                <img src="img/main2.png">
+            </div>
+            <div class="thumb" style="--clr: #ffd06d;" onclick="slider('img/product3.png', this)">
+                <img src="img/main3.png">
+            </div>
         </div>
     </section>
 
-    <div class="main">
-        <div class="row">
-            <li><img src="img/main1.png" onclick="slider('../img/product1.png')"></li>
-        </div>
-
-        <div class="row2">
-            <li><img src="img/main2.png" onclick="slider('../img/product2.png')"></li>
-        </div>
-
-        <div class="row3">
-            <li><img src="img/main3.png" onclick="slider('../img/product3.png')"></li>
-        </div>
-    </div>
-
+<script src="https://unpkg.com/scrollreveal"></script>
 <script>
- 
- function slider(anything) {
-        document.querySelector('.one').src = anything;
-    }
+    const sr = ScrollReveal({
+        distance: '60px',
+        duration: 2500,
+        delay: 400,
+        reset: true // anima toda vez que subir/descer
+    });
 
-    let menu = document.querySelector('#menu');
-    let navbar = document.querySelector('.navegação');
-
-    menu.onclick = () => {
-        menu.classList.toggle('bx-x');
-        navbar.classList.toggle('open');
-    }
+    sr.reveal('.home-text', {origin: 'left'});
+    sr.reveal('.home-img', {origin: 'right'});
+    sr.reveal('.thumbnails', {origin: 'bottom', delay: 600});
 </script>
 
-</body>
-</html>
+       <script>
+    // 1. Lógica do Slider de Produtos
+    function slider(path, element) {
+        // Troca a imagem principal com um efeito suave
+        const mainImg = document.querySelector('.main-img');
+        
+        mainImg.style.opacity = '0'; // Começa o fade-out
+        
+        setTimeout(() => {
+            mainImg.src = path;
+            mainImg.style.opacity = '1'; // Faz o fade-in com a nova imagem
+        }, 250);
+
+        // Gerencia a borda colorida (glow) nas miniaturas
+        document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
+    }
+
+    // 2. Lógica do Menu Mobile (Hambúrguer)
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+    const body = document.querySelector('body');
+
+    menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('open');
+    
+    // Trava o scroll do site apenas enquanto o menu lateral está aberto
+    if (navbar.classList.contains('open')) {
+        body.style.overflow = 'hidden';
+    } else {
+        body.style.overflow = 'auto';
+    }
+};
+
+// Fecha o menu e destrava o scroll ao clicar em um link
+    document.querySelectorAll('.navbar a').forEach(link => {
+    link.onclick = () => {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('open');
+        body.style.overflow = 'auto';
+    }
+});
+
+    // 3. Extra: Efeito de som suave ao clicar (opcional, para nível "Premium")
+    const buttons = document.querySelectorAll('.btn-buy, .thumb');
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            // Aqui você poderia adicionar um efeito de hover via JS se quisesse
+        });
+    });
+
+</script>
