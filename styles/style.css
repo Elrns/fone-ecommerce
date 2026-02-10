@@ -15,6 +15,12 @@
     list-style: none;
 }
 
+
+
+#menu-icon {
+   display: none !important; /* Garante que o hambúrguer nunca apareça no PC */
+}
+
 body {
     background: var(--bg-color);
     background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
@@ -43,16 +49,25 @@ body {
 }
 
 header {
-    padding: 30px 8%;
+  position: fixed; /* Fixa no topo da tela */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa a largura total */
+    padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(2, 6, 23, 0.7);
-    backdrop-filter: blur(15px);
+    background: rgba(2, 6, 23, 0.8); /* Fundo com transparência */
+    backdrop-filter: blur(15px); /* Efeito de vidro */
     border-bottom: 1px solid var(--border-color);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+    z-index: 10000; /* Garante que fique acima de todos os elementos */
+}
+
+/* Ajuste para alinhar os itens internos */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo {
@@ -71,6 +86,9 @@ header {
     opacity: 0.7;
     transition: 0.3s;
 }
+
+
+
 
 .navbar a.active, .navbar a:hover {
     opacity: 1;
@@ -107,6 +125,78 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* Estilização do Botão Voltar */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil de vidro */
+    border: 1px solid var(--border-color);
+    border-radius: 50px; /* Formato pilula */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.btn-back:hover {
+    background: var(--main-color);
+    color: #020617; /* Cor escura para contraste com o neon */
+    border-color: var(--main-color);
+    box-shadow: 0 0 20px rgba(52, 231, 248, 0.4);
+    transform: translateX(-8px); /* Movimento intuitivo para a esquerda */
+}
+
+/* Estilização específica para o ícone dentro do botão */
+.btn-back i {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover i {
+    transform: scale(1.2);
+}
+
+
+
+/* Isso garante que no Desktop a Navbar sempre seja horizontal e visível */
+@media (min-width: 769px) {
+    .navbar {
+        display: flex;
+    gap: 1.5rem;
+    }
+       
+
+    .navbar a {
+    color: var(--text-color);
+    font-size: 14px;
+    opacity: 0.7;
+    transition: 0.3s;
+    }
+
+    #menu-icon {
+       display: none;
+    }
+}
+
+
+
+
+/* Responsividade: No mobile ele fica um pouco menor */
+@media (max-width: 768px) {
+    .btn-back {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+}
+
 
 /* Botões Estilo Tron */
 .btn-buy {
@@ -265,24 +355,6 @@ header {
 }
 
 
-/* Configurações Globais (Mantidas fora da media query) */
-:root {
-    --bg-color: #020617;
-    --main-color: #34e7f8;
-    --text-color: #ffffff;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --border-color: rgba(255, 255, 255, 0.1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style: none;
-}
-
 body {
     background: var(--bg-color);
     background-image: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
@@ -372,6 +444,8 @@ body {
     box-shadow: 0 0 20px rgba(52, 231, 248, 0.2);
 }
 
+
+
 .main-img {
     width: 100%;
     max-width: 500px;
@@ -396,3 +470,5 @@ body {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+

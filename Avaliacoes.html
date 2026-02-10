@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <title>Avaliações | Soundbox</title>
+    <style>
+        .reviews-container {
+            padding: 120px 10% 50px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header h2 {
+            font-size: 3rem;
+            color: var(--main-color);
+        }
+
+        /* Grade de Avaliações */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+            background: rgba(52, 231, 248, 0.02);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .user-info img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--main-color);
+        }
+
+        .user-name h4 { font-size: 1.1rem; color: #fff; }
+        .user-name span { font-size: 0.8rem; opacity: 0.6; }
+
+        .stars {
+            color: #ffcc00; /* Cor das estrelas */
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.4);
+        }
+
+        .review-text {
+            font-style: italic;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Botão para adicionar avaliação */
+        .add-review-btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 12px 30px;
+            border: 2px dashed var(--border-color);
+            border-radius: 30px;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .add-review-btn:hover {
+            border-color: var(--main-color);
+            color: var(--main-color);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-header h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body class="product-page">
+
+    <header class="header-compact">
+        <a href="index.html" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+        <nav class="navbar">
+            <a href="index.html">Visão Geral</a>
+            <a href="especificacoes.html">Especificações</a>
+            <a href="#" class="active">Avaliações</a>
+        </nav>
+        <a href="index.html" class="btn-back"><i class='bx bx-left-arrow-alt'></i> Voltar</a>
+    </header>
+
+    <main class="reviews-container">
+        <div class="reviews-header">
+            <span>FEEDBACK DOS CLIENTES</span>
+            <h2>Quem usa, aprova.</h2>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
+                    <div class="user-name">
+                        <h4>Ricardo Silva</h4>
+                        <span>Músico Profissional</span>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="review-text">"O cancelamento de ruído é simplesmente de outro planeta. Consigo produzir minhas tracks em qualquer lugar sem distrações."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                    <div class="user-name">
+                        <h4>Ana Oliveira</h4>
+                        <span>Desenvolvedora</span>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i>
+                </div>
+                <p class="review-text">"A bateria dura a semana inteira de trabalho. Além de ser extremamente confortável, não aperta a cabeça mesmo após horas de uso."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="User">
+                    <div class="user-name">
+                        <h4>Lucas Mendes</h4>
+                        <span>Gamer</span>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star-half'></i>
+                </div>
+                <p class="review-text">"O som é muito equilibrado. Os graves são potentes mas não escondem os detalhes. Vale cada centavo do investimento."</p>
+            </div>
+        </div>
+
+        <a href="#" class="add-review-btn"><i class='bx bx-plus'></i> Escrever uma avaliação</a>
+    </main>
+
+</body>
+</html>

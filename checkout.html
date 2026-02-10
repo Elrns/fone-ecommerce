@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <title>Finalizar Pedido | Soundbox</title>
+    <style>
+        .checkout-container {
+            padding: 120px 10% 50px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+        }
+
+        .checkout-form, .order-summary {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .checkout-form h2, .order-summary h3 {
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            opacity: 0.8;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            outline: none;
+        }
+
+        .input-group input:focus { border-color: var(--main-color); }
+
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .method {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .method:hover, .method.active {
+            border-color: var(--main-color);
+            background: rgba(52, 231, 248, 0.1);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--main-color);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .checkout-container { grid-template-columns: 1fr; }
+        }
+
+        /* Efeito de brilho nos inputs ao focar */
+.input-group input:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 10px rgba(52, 231, 248, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Estilo para os métodos de pagamento selecionados */
+.method.active {
+    border-color: var(--main-color) !important;
+    background: rgba(52, 231, 248, 0.15) !important;
+    color: var(--main-color);
+    box-shadow: 0 0 15px rgba(52, 231, 248, 0.1);
+}
+
+/* Botão de confirmação com efeito Pulse */
+.btn-confirm {
+    width: 100%;
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--main-color);
+    color: #020617;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-confirm:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px var(--main-color);
+}
+    </style>
+</head>
+<body class="product-page">
+
+    <header class="header-compact">
+        <a href="index.html" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+        <a href="produto.html" class="btn-back"><i class='bx bx-left-arrow-alt'></i> Voltar</a>
+    </header>
+
+    <main class="checkout-container">
+        <section class="checkout-form">
+            <h2>Informações de Entrega</h2>
+            <form id="pay-form">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" placeholder="Seu nome aqui" required>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" placeholder="seu@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Endereço</label>
+                    <input type="text" placeholder="Rua, número, bairro" required>
+                </div>
+
+                <h2 style="margin-top: 30px;">Pagamento</h2>
+                <div class="payment-methods">
+                    <div class="method active"><i class='bx bxs-credit-card'></i><br>Cartão</div>
+                    <div class="method"><i class='bx bx-barcode'></i><br>Boleto</div>
+                    <div class="method"><i class='bx bx-qr-scan'></i><br>PIX</div>
+                </div>
+            </form>
+        </section>
+
+        <aside class="order-summary">
+            <h3>Resumo do Pedido</h3>
+            <div class="summary-item">
+                <span>Soundbox Wireless Pro</span>
+                <span>R$ 1077,29</span>
+            </div>
+            <div class="summary-item">
+                <span>Frete</span>
+                <span style="color: #00ff00;">Grátis</span>
+            </div>
+            <div class="total">
+                <span>Total: R$ 1077,29</span>
+            </div>
+            <button type="submit" form="pay-form" class="btn-buy" style="width: 100%; margin-top: 20px; border: none; cursor: pointer;">
+                Confirmar Pagamento
+            </button>
+        </aside>
+    </main>
+
+</body>
+
+<script>
+    document.getElementById('pay-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Pedido processado com sucesso! Você receberá os detalhes no seu e-mail.');
+        window.location.href = 'index.html';
+    });
+
+    const methods = document.querySelectorAll('.method');
+    const cardDetails = document.getElementById('card-details');
+
+    methods.forEach(method => {
+        method.addEventListener('click', () => {
+            // Remove classe active de todos
+            methods.forEach(m => m.classList.remove('active'));
+            // Adiciona no clicado
+            method.classList.add('active');
+
+            // Se não for cartão, esconde os campos de detalhes
+            if(method.innerText.includes('Cartão')) {
+                cardDetails.style.display = 'block';
+            } else {
+                cardDetails.style.display = 'none';
+            }
+        });
+    });
+
+    // Feedback de Sucesso
+    document.getElementById('pay-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('🎉 Pagamento Confirmado! O seu Soundbox Pro está sendo preparado para envio.');
+        window.location.href = 'index.html';
+    });
+
+</script>
+</html>

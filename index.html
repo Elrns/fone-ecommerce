@@ -4,121 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css">
     <title>Soundbox | Premium Audio</title>
 </head>
 <body>
-    
-    <div class="stars-container"></div> <header>
-        <a href="#" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
-        <nav class="navbar">
-            <a href="#" class="active">Visão Geral</a>
-            <a href="#">Especificações</a>
-            <a href="#">Avaliações</a>
-            <a href="#">Contate-nos</a>
-        </nav>
-        <div class="header-icons">
-            <i class='bx bx-shopping-bag'></i>
-            <i class='bx bx-menu' id="menu-icon"></i>
-        </div>
-    </header>
+<header>
+    <div class="header-left">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <a href="index.html" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+    </div>
+
+    <nav class="navbar">
+        <a href="index.html" class="active">Visão Geral</a>
+        <a href="especificacoes.html">Especificações</a> 
+        <a href="Avaliacoes.html">Avaliações</a>
+        <a href="contact.html">Contate-nos</a>
+    </nav>
+
+    <div class="header-icons">
+        <i class='bx bx-shopping-bag'></i>
+    </div>
+</header>
 
     <section class="home">
-        <div class="home-text">
-            <p class="date-info">Tuesday, 27 January, 2026</p>
-            <h1>Wireless <br> <span>Headphones</span></h1>
-            <h5>A maneira mais inteligente de ouvir.</h5>
-            <h3 class="price">R$ 1077,29</h3>
-            
-            <div class="btn-group">
-                <a href="#" class="btn-buy">Compre agora</a>
-                <a href="#" class="btn-link">Saber mais</a>
-            </div>
-        </div>
+    <div class="home-text">
+        <p class="date-info">Tuesday, 27 January, 2026</p>
+        <h1>Wireless <br> <span>Headphones</span></h1>
+        <h5>A maneira mais inteligente de ouvir.</h5>
+        <h3 class="price">R$ 1077,29</h3>
+        
+        <div class="btn-group">
+    <a href="produto.html" class="btn-buy">Compre agora</a>
+    
+    <a href="especificacoes.html" class="btn-link">Saber mais</a>
+</div>
+    </div>
 
-        <div class="home-img">
-            <div class="circle-bg"></div> <img src="img/product1.png" class="main-img">
-        </div>
+    <div class="home-img">
+        <div class="circle-bg"></div> 
+        <img src="img/product1.png" class="main-img">
+    </div>
 
-        <div class="thumbnails">
-            <div class="thumb active" style="--clr: #34e7f8;" onclick="slider('img/product1.png', this)">
-                <img src="img/main1.png">
-            </div>
-            <div class="thumb" style="--clr: #ff758d;" onclick="slider('img/product2.png', this)">
-                <img src="img/main2.png">
-            </div>
-            <div class="thumb" style="--clr: #ffd06d;" onclick="slider('img/product3.png', this)">
-                <img src="img/main3.png">
-            </div>
+    <div class="thumbnails">
+        <div class="thumb active" style="--clr: #34e7f8;" onclick="slider('img/product1.png', this)">
+            <img src="img/main1.png">
         </div>
-    </section>
+        <div class="thumb" style="--clr: #ff758d;" onclick="slider('img/product2.png', this)">
+            <img src="img/main2.png">
+        </div>
+        <div class="thumb" style="--clr: #ffd06d;" onclick="slider('img/product3.png', this)">
+            <img src="img/main3.png">
+        </div>
+    </div>
+</section>
 
 <script src="https://unpkg.com/scrollreveal"></script>
 <script>
+    // 1. Configuração do ScrollReveal
     const sr = ScrollReveal({
         distance: '60px',
         duration: 2500,
         delay: 400,
-        reset: true // anima toda vez que subir/descer
+        reset: true 
     });
-
     sr.reveal('.home-text', {origin: 'left'});
     sr.reveal('.home-img', {origin: 'right'});
     sr.reveal('.thumbnails', {origin: 'bottom', delay: 600});
-</script>
 
-       <script>
-    // 1. Lógica do Slider de Produtos
+    // 2. Lógica do Slider (Troca de cores)
     function slider(path, element) {
-        // Troca a imagem principal com um efeito suave
         const mainImg = document.querySelector('.main-img');
-        
-        mainImg.style.opacity = '0'; // Começa o fade-out
-        
+        mainImg.style.opacity = '0'; 
         setTimeout(() => {
             mainImg.src = path;
-            mainImg.style.opacity = '1'; // Faz o fade-in com a nova imagem
+            mainImg.style.opacity = '1'; 
         }, 250);
-
-        // Gerencia a borda colorida (glow) nas miniaturas
         document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
         element.classList.add('active');
     }
 
-    // 2. Lógica do Menu Mobile (Hambúrguer)
-    const menuIcon = document.querySelector('#menu-icon');
-    const navbar = document.querySelector('.navbar');
-    const body = document.querySelector('body');
+    // 3. Lógica Única do Menu Mobile
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuIcon = document.querySelector('#menu-icon');
+        const navbar = document.querySelector('.navbar');
+        const body = document.querySelector('body');
 
-    menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('open');
-    
-    // Trava o scroll do site apenas enquanto o menu lateral está aberto
-    if (navbar.classList.contains('open')) {
-        body.style.overflow = 'hidden';
-    } else {
-        body.style.overflow = 'auto';
-    }
-};
+        if (menuIcon && navbar) {
+            menuIcon.onclick = () => {
+                console.log("Menu acionado!"); // Verifique o F12
+                menuIcon.classList.toggle('bx-x');
+                navbar.classList.toggle('open');
+                
+                // Trava o scroll se aberto
+                body.style.overflow = navbar.classList.contains('open') ? 'hidden' : 'auto';
+            };
 
-// Fecha o menu e destrava o scroll ao clicar em um link
-    document.querySelectorAll('.navbar a').forEach(link => {
-    link.onclick = () => {
-        menuIcon.classList.remove('bx-x');
-        navbar.classList.remove('open');
-        body.style.overflow = 'auto';
-    }
-});
-
-    // 3. Extra: Efeito de som suave ao clicar (opcional, para nível "Premium")
-    const buttons = document.querySelectorAll('.btn-buy, .thumb');
-    buttons.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            // Aqui você poderia adicionar um efeito de hover via JS se quisesse
-        });
+            // Fecha o menu ao clicar em qualquer link
+            navbar.querySelectorAll('a').forEach(link => {
+                link.onclick = () => {
+                    menuIcon.classList.remove('bx-x');
+                    navbar.classList.remove('open');
+                    body.style.overflow = 'auto';
+                }
+            });
+        }
     });
-
 </script>

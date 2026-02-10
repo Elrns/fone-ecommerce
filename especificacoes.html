@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <title>Especificações | Soundbox Pro</title>
+
+
+<style>
+    /* Configurações da Página de Produto */
+.product-page {
+    background: #020617;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 5% 50px;
+}
+
+/* Hero Section */
+.product-hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.badge {
+    background: rgba(52, 231, 248, 0.1);
+    color: var(--main-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin: 20px 0;
+}
+
+.hero-content h1 span {
+    color: var(--main-color);
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+/* Bento Grid */
+.specs-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.bento-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.bento-item:hover {
+    border-color: var(--main-color);
+    background: rgba(52, 231, 248, 0.02);
+}
+
+.bento-item i {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+}
+
+.bento-item h3 { margin-bottom: 10px; }
+.bento-item p { font-size: 0.85rem; opacity: 0.6; }
+
+/* Grid Variations */
+.tall { grid-row: span 2; }
+.wide { 
+    grid-column: span 2; 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 30px; 
+}
+
+/* Technical Table */
+.technical-table h2 { margin-bottom: 30px; text-align: center; }
+.table-wrapper {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.row span:first-child { font-weight: 600; color: var(--main-color); }
+
+
+/* Força o Header a ficar no topo e ser clicável */
+.header-compact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 9999; /* Garante que fique acima de tudo */
+}
+
+/* Estilização do Botão Voltar para garantir área de clique */
+.btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 10000; /* Um nível acima do header */
+}
+
+.btn-back:hover {
+    background: var(--main-color);
+    color: #020617;
+    transform: translateX(-5px);
+}
+
+/* Ajuste na Main para não sumir atrás do header fixo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 150px; /* Aumentado para dar espaço ao header fixo */
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .specs-bento {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+    }
+    .wide, .tall { grid-column: span 1; grid-row: span 1; flex-direction: column; }
+    .hero-content h1 { font-size: 2.2rem; }
+
+    .header-compact {
+        padding: 15px 5%;
+    }
+    
+    .header-compact .navbar {
+        display: none; /* Esconde a nav interna para sobrar espaço para o Voltar */
+    }
+
+    .btn-back {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+
+
+</style>    
+</head>
+<body class="product-page">
+
+   <header class="header-compact">
+    <a href="index.html" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+    
+    <nav class="navbar">
+        <a href="index.html">Visão Geral</a>
+        <a href="#" class="active">Especificações</a>
+    </nav>
+
+    <a href="index.html" class="btn-back">
+        <i class='bx bx-left-arrow-alt'></i> Voltar
+    </a>
+</header>
+
+    <main class="container">
+        <section class="product-hero">
+            <div class="hero-content">
+                <span class="badge">Tecnologia Audiófila</span>
+                <h1>Engenharia de som <br><span>em cada detalhe.</span></h1>
+                <p>Projetado para quem não aceita menos que a perfeição. O Soundbox Pro combina drivers de alta fidelidade com o cancelamento de ruído mais avançado do mercado.</p>
+            </div>
+        </section>
+
+        <section class="specs-bento">
+            <div class="bento-item tall" data-sr-id="1">
+                <i class='bx bxs-battery-charging'></i>
+                <h3>40 Horas</h3>
+                <p>De autonomia total com uma única carga. 10 minutos na tomada garantem 5 horas de som.</p>
+            </div>
+
+            <div class="bento-item wide" data-sr-id="2">
+                <div class="bento-text">
+                    <h3>Cancelamento Ativo (ANC)</h3>
+                    <p>4 microfones dedicados filtram até 98% do ruído externo para um silêncio absoluto.</p>
+                </div>
+                <i class='bx bxs-micro-plus'></i>
+            </div>
+
+            <div class="bento-item" data-sr-id="3">
+                <i class='bx bxl-bluetooth'></i>
+                <h3>Bluetooth 5.3</h3>
+                <p>Conexão estável e sem latência a até 15 metros.</p>
+            </div>
+
+            <div class="bento-item" data-sr-id="4">
+                <i class='bx bxs-component'></i>
+                <h3>Drivers 40mm</h3>
+                <p>Diafragmas de titânio para graves profundos e agudos cristalinos.</p>
+            </div>
+        </section>
+
+        <section class="technical-table">
+            <h2>Ficha Técnica</h2>
+            <div class="table-wrapper">
+                <div class="row"><span>Modelo</span><span>Soundbox Wireless Pro v2</span></div>
+                <div class="row"><span>Resposta de Frequência</span><span>20Hz - 20kHz</span></div>
+                <div class="row"><span>Impedância</span><span>32 Ohms</span></div>
+                <div class="row"><span>Peso</span><span>250g</span></div>
+                <div class="row"><span>Material</span><span>Couro sintético e Alumínio</span></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+        const sr = ScrollReveal({
+            distance: '30px',
+            duration: 1000,
+            delay: 200,
+            reset: false
+        });
+        sr.reveal('.bento-item', { interval: 100 });
+        sr.reveal('.hero-content', { origin: 'top' });
+    </script>
+</body>
+</html>

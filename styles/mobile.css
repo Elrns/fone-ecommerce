@@ -1,0 +1,137 @@
+/* --- AJUSTES DE RESPONSIVIDADE PROFISSIONAL --- */
+
+@media (max-width: 1024px) {
+    .home {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 120px 6% 60px; /* Mais respiro no topo */
+        text-align: center;
+        gap: 2.5rem;
+    }
+    .home-text { order: 1; z-index: 5; }
+    .home-img { order: 2; margin: 10px 0; transform: scale(1.05); } /* Leve destaque na imagem */
+    .thumbnails { 
+        order: 3; 
+        position: relative; 
+        justify-content: center;
+        margin-top: 30px; 
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Ajuste para o header da página de especificações */
+    .header-compact {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        z-index: 10002 !important;
+        pointer-events: none; /* Mantém o fundo "transparente" ao clique */
+    }
+
+
+   header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 10000;
+        background: rgba(2, 6, 23, 0.85);
+        backdrop-filter: blur(12px);
+        pointer-events: none; 
+    }
+
+    /* A SOLUÇÃO ESTÁ AQUI: Adicionamos o .btn-back na lista de permissão */
+    .header-left, .header-icons, .btn-back, .logo {
+        pointer-events: auto !important; /* Libera o clique para esses itens especificamente */
+    }
+
+    .header-left, .header-icons {
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+   #menu-icon {
+        display: block !important;
+        font-size: 30px;
+        color: #34e7f8;
+        cursor: pointer !important;
+        position: relative; 
+        z-index: 100001;
+        pointer-events: auto !important;
+    }
+
+    /* NAVBAR - GAVETA MENOR E FLUTUANTE */
+    .navbar {
+        position: fixed;
+        top: 80px; /* Descolada do topo */
+        left: -100%; 
+        width: 240px; /* Largura reduzida e fixa */
+        height: auto; /* Altura automática conforme os itens */
+        max-height: 80vh; /* Não passa de 80% da tela */
+        background: rgba(7, 15, 43, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 30px;
+        
+        /* BORDAS ARREDONDADAS E ESTILO "FLOATING" */
+        border-radius: 0 20px 20px 0; 
+        border: 1px solid rgba(52, 231, 248, 0.2);
+        border-left: none;
+        
+        transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 99999;
+        box-shadow: 15px 0 40px rgba(0, 0, 0, 0.6);
+        pointer-events: auto;
+    }
+
+    .navbar.open {
+        left: 0; /* Agora ela encosta no canto, mas flutua no topo/baixo */
+    }
+
+    .navbar a {
+        display: block;
+        margin: 15px 0;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: 0.3s;
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    .navbar a:hover {
+        color: #34e7f8;
+        padding-left: 10px;
+    }
+
+    /* Animação de Entrada */
+    .navbar.open a {
+        animation: slideInCompact 0.4s ease forwards;
+    }
+
+    .navbar.open a:nth-child(1) { animation-delay: 0.1s; }
+    .navbar.open a:nth-child(2) { animation-delay: 0.2s; }
+    .navbar.open a:nth-child(3) { animation-delay: 0.3s; }
+    .navbar.open a:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideInCompact {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}

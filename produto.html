@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/mobile.css">
+    <title>Detalhes | Soundbox Premium</title>
+    <style>
+        .product-details {
+            padding: 150px 10% 50px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .copy-content h2 {
+            font-size: 2.5rem;
+            color: var(--main-color);
+            margin-bottom: 20px;
+        }
+        .copy-content p {
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        .features-list {
+            margin: 30px 0;
+        }
+        .features-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .features-list i { color: var(--main-color); }
+
+        @media (max-width: 768px) {
+            .product-details { grid-template-columns: 1fr; text-align: center; }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header class="header-compact">
+    <a href="index.html" class="logo"><i class='bx bx-headphone'></i><span>Sound</span>box</a>
+    
+    
+    
+    <a href="index.html" class="logo">
+    <div class="header-icons">
+        <a href="index.html" class="btn-back">
+            <i class='bx bx-left-arrow-alt'></i>
+            <span>Voltar</span>
+        </a>
+    </div>
+</header>
+
+    <section class="product-details">
+        <div class="product-visual">
+            <img src="img/product1.png" style="width: 100%; filter: drop-shadow(0 0 30px var(--main-color));">
+        </div>
+
+        <div class="copy-content">
+            <span>TECNOLOGIA DE PONTA</span>
+            <h2>O Silêncio nunca foi tão nítido.</h2>
+            
+            <p>O <strong>Soundbox Wireless</strong> não é apenas um fone de ouvido, é um portal para a sua música. Com cancelamento de ruído ativo adaptável, você esquece o mundo lá fora e mergulha em cada nota.</p>
+            
+            <ul class="features-list">
+                <li><i class='bx bxs-check-shield'></i> 40 horas de bateria ininterrupta</li>
+                <li><i class='bx bxs-bolt' ></i> Carregamento ultra rápido (10 min = 5 horas)</li>
+                <li><i class='bx bxs-microphone' ></i> Microfones com isolamento de voz para chamadas</li>
+            </ul>
+
+            <p>Sinta o conforto das almofadas em couro sintético premium, projetadas para longas sessões de audição sem pressão nos ouvidos.</p>
+
+            <a href="checkout.html" class="btn-buy">Finalizar Compra - R$ 1077,29</a>
+        </div>
+    </section>
+</body>
+</html>
